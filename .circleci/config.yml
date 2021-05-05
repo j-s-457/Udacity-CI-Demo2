@@ -17,6 +17,16 @@ orbs:
 #       - run: echo ${CIRCLE_WORKFLOW_ID}
 
 jobs:
+  intentional_fail:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: return 1
+      - run:
+          name: on error
+          command: echo "Error, Error!"
+          when: on_fail
+
   # save_hello_world_output:
   #   docker:
   #     - image: circleci/node:13.8.0
@@ -45,9 +55,14 @@ jobs:
 workflows:
   my_workflow:
     jobs:
+      - intentional_fail
+
+
       # - save_hello_world_output
       # - print_output_file:
       #     requires:
       #       - save_hello_world_output
-      - print_id
+
+      # seperate exercise
+      # - print_id
 
