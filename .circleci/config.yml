@@ -5,16 +5,16 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 
-commands:
-  print_pipeline_id:
-    #UNNESSARY
-    # description: self-explanatory
-    # parameters:
-    #   to:
-    #     type: String
-    #     default: $CIRCLE_WORKFLOW_ID
-    steps:
-      - run: echo ${CIRCLE_WORKFLOW_ID}
+# commands:
+#   print_pipeline_id:
+#     #UNNESSARY
+#     # description: self-explanatory
+#     # parameters:
+#     #   to:
+#     #     type: String
+#     #     default: $CIRCLE_WORKFLOW_ID
+#     steps:
+#       - run: echo ${CIRCLE_WORKFLOW_ID}
 
 jobs:
   # save_hello_world_output:
@@ -33,11 +33,13 @@ jobs:
   #     - attach_workspace:
   #         at: ~/
   #     - run: cat ~/output.txt
-  print_id:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - print_pipeline_id
+
+  #This is a seperate demo
+  # print_id:
+  #   docker:
+  #     - image: circleci/node:13.8.0
+  #   steps:
+  #     - print_pipeline_id
 
 # Orchestrate or schedule a set of jobs
 workflows:
